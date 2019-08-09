@@ -166,13 +166,13 @@ window.onload = function() {
       // Establish Selection
       let selection = parkTypeSelector.selectedIndex - 1;
       let selectedType = parkTypeSelector.value;
-      console.log(selectedType);
+        //console logs correct Type
 
-      // Compare selected State to options available.
+      // Compare selected Type to part of name.
       // Loop through parks array for all matching values
 
       for (let i = 0; i < objs.parks.length; i++) {
-        if (objs.parks[i].State == selectedType) {
+        if (objs.parks[i].LocationName.includes(selectedType)) {
           let row = parkDisplay.insertRow(0);
           let cellA1 = row.insertCell(0);
           let cellA2 = row.insertCell(1);
