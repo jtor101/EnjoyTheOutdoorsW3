@@ -1,7 +1,7 @@
 "use strict";
 
 window.onload = function() {
-  // Wiring in Events
+  // Wiring In Events
   // Initial select radio buttons
   let locationSelected = document.getElementById("initialSelectLocation");
   let parkTypeSelected = document.getElementById("initialSelectParkType");
@@ -20,6 +20,7 @@ window.onload = function() {
   // Table Body
   let parkDisplay = document.getElementById("parkDisplay");
 
+  
   // Radio buttons decide which dropdown to show on change.
   // Search by Location selected
   locationSelected.onchange = function() {
@@ -235,4 +236,5 @@ window.onload = function() {
             cellA6.innerHTML = objs.parks[selection].Phone;
     };
   });
+  // JSON function ends
 };
