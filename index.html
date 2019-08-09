@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/site.css">
+
+    <title>Palisades Parks Service</title>
+</head>
+
+<body class="container-fluid">
+
+    <header class="jumbotron img-fluid">
+        <h1 class="text-left">Palisades Parks</h1>
+    </header>
+
+
+    <nav class="row position-relative">
+        <ul class="col-4 offset-8 nav flex-column">
+            <li class="nav-item">
+                <a class="mb-3 nav-link text-center" href="index.html">Palisades NPS</a>
+            </li>
+            <li class="nav-item">
+                <a class="mb-3 nav-link text-center" href="#">Mountains</a>
+            </li>
+        </ul>
+    </nav>
+
+    <main>
+        <section class="row position-relative">
+            <div class="col-7">
+                <h2 class="text-white">About Us</h2>
+                <p class="text-white">Palisades Parks was named after a song by the legendary Counting Crows. We believe in preserving the essence of our natural beauty for as long as we possibly can. And we hope that you'll join us at one of our many parks sometime soon!</p>
+            </div>
+        </section>
+
+        <hr class="bg-white">
+        <div class="row my-5">
+
+            <form class="col-8 offset-2 text-center">
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="initialSelectRadio" id="initialSelectLocation" value="locationSelected">
+                    <label class="form-check-label" for="initialSelectLocation">
+                              Search by Location
+                            </label>
+                </div>
+                <div class="form-check mb-5">
+                    <input class="form-check-input" type="radio" name="initialSelectRadio" id="initialSelectParkType" value="parkTypeSelected">
+                    <label class="form-check-label" for="initialSelectParkType">
+                              Search by Park Type
+                            </label>
+                </div>
+                <div class="form-group" id="pickerByLocationDiv">
+                    <label for="pickerByLocation">Select Location: </label>
+                    <select class="form-control" id="pickerByLocation">
+                        <option>-- State --</option>
+                    </select>
+                </div>
+                <div class="form-group" id="pickerByParkTypeDiv">
+                    <label for="pickerByParkType">Select Park Type: </label>
+                    <select class="form-control" id="pickerByParkType">
+                    </select>
+                </div>
+            </form>
+        </div>
+        <div class="row my-5">
+            <table class="text-center table table-hover table-dark col-10 offset-1">
+                <thead>
+                    <tr>
+                            <th colspan="6">Parks</th>
+                    </tr>
+                    <tr>
+                        <th scope="col">Location Name</th>
+                        <th scope="col">Address</th>
+                        <th scope="col">City</th>
+                        <th scope="col">State</th>
+                        <th scope="col">Zip Code</th>
+                        <th scope="col">Phone Number</th>
+                    </tr>
+                </thead>
+                <tbody id="parkDisplay">
+
+                </tbody>
+            </table>
+        </div>
+
+    </main>
+
+    <footer class=" bg-white p-2 mb-2 text-center ">
+        John Torres - HartCode 2019
+    </footer>
+
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js "></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js " integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1 " crossorigin="anonymous "></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js " integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM " crossorigin="anonymous "></script>
+    <script src="scripts/script.js "></script>
+</body>
+
+</html>
