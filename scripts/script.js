@@ -5,14 +5,17 @@ window.onload = function() {
   // Initial select radio buttons
   let locationSelected = document.getElementById("initialSelectLocation");
   let parkTypeSelected = document.getElementById("initialSelectParkType");
+  let allSelected = document.getElementById("initialSelectAll");
 
   // Divs containing Dropdowns for each selection
   let locationSelectDiv = document.getElementById("pickerByLocationDiv");
   let parkTypeSelectDiv = document.getElementById("pickerByParkTypeDiv");
+  let allSelectDiv = document.getElementById("pickerByAllDiv");
 
   // Dropdowns
   let locationSelector = document.getElementById("pickerByLocation");
   let parkTypeSelector = document.getElementById("pickerByParkType");
+  let allSelector = document.getElementById("pickerAll");
 
   // Table Body
   let parkDisplay = document.getElementById("parkDisplay");
@@ -22,11 +25,20 @@ window.onload = function() {
   locationSelected.onchange = function() {
     locationSelectDiv.style.display = "block";
     parkTypeSelectDiv.style.display = "none";
+    allSelectDiv.style.display = "none";
   };
 
   // Search by Park Type selected
   parkTypeSelected.onchange = function() {
     parkTypeSelectDiv.style.display = "block";
+    locationSelectDiv.style.display = "none";
+    allSelectDiv.style.display = "none";
+  };
+
+  // See All Parks selected
+  allSelected.onchange = function() {
+    allSelectDiv.style.display = "block";
+    parkTypeSelectDiv.style.display = "none";
     locationSelectDiv.style.display = "none";
   };
 
@@ -131,7 +143,16 @@ window.onload = function() {
   $.getJSON("data/nationalparks.json", function(data) {
     objs = data;
 
-    // on change event, populates table. - Location
+      // fills dropdown options - See All Parks
+  for (let i = 0; i < objs.parks.length; i++) {
+    let parkAll = objs.parks[i].LocationName;
+    let element = document.createElement("option");
+    element.text = parkAll;
+    element.value = parkAll;
+    allSelector.appendChild(element);
+  }
+
+    // on Change event, populates table. - Location
     locationSelector.onchange = function() {
       parkDisplay.innerHTML = "";
 
@@ -161,12 +182,13 @@ window.onload = function() {
       }
     };
 
+    // on Change event, populates table. - Park Type
     parkTypeSelector.onchange = function() {
       parkDisplay.innerHTML = "";
       // Establish Selection
       let selection = parkTypeSelector.selectedIndex - 1;
       let selectedType = parkTypeSelector.value;
-        //console logs correct Type
+      //console logs correct Type
 
       // Compare selected Type to part of name.
       // Loop through parks array for all matching values
@@ -189,6 +211,28 @@ window.onload = function() {
           cellA6.innerHTML = objs.parks[i].Phone;
         }
       }
+    };
+
+    // on Change event, populates table. - See All Parks
+    allSelector.onchange = function() {
+        let selection = allSelector.selectedIndex - 1;
+
+        parkDisplay.innerHTML = "";
+
+            let row = parkDisplay.insertRow(0);
+            let cellA1 = row.insertCell(0);
+            let cellA2 = row.insertCell(1);
+            let cellA3 = row.insertCell(2);
+            let cellA4 = row.insertCell(3);
+            let cellA5 = row.insertCell(4);
+            let cellA6 = row.insertCell(5);
+  
+            cellA1.innerHTML = objs.parks[selection].LocationName;
+            cellA2.innerHTML = objs.parks[selection].Address;
+            cellA3.innerHTML = objs.parks[selection].City;
+            cellA4.innerHTML = objs.parks[selection].State;
+            cellA5.innerHTML = objs.parks[selection].ZipCode;
+            cellA6.innerHTML = objs.parks[selection].Phone;
     };
   });
 };
